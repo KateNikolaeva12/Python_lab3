@@ -1,10 +1,8 @@
 def poisk(list, tovar):
-    s = 0
-    for i in list:
-        if i == tovar:
-            return s
-            break
-        s += 1
+
+    for pos, value in enumerate(list):
+        if value == tovar:
+            return pos
     return None
 
 
