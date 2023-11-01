@@ -2,19 +2,16 @@
 def cpunt_letters(str):
     s = []
     a = str.lower()
-    b = a.split()
-    for i in b:
+    for i in a:
         for j in i:
             if j.isalpha():
                 s += j
-    str_ = set(s)
     letters = {}
-    for i in str_:
-        sum = 0
-        for j in s:
-            if i == j:
-                sum += 1
-        letters[i] = sum
+    for i in s:
+        if i in letters:
+            letters[i] = letters.get(i) + 1
+        else:
+            letters[i] = 1
     return letters
 
 
@@ -65,5 +62,6 @@ main_str = """
 # TODO Распечатайте в столбик букву и её частоту в тексте
 
 letters = calculate_frequency(cpunt_letters(main_str))
-for key, value in letters.items():
-    print("{0}: {1}".format(key, value))
+for i in letters:
+    g = format(letters.get(i), '.2f')
+    print(f'{i}: {g}')
