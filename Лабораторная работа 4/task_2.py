@@ -9,7 +9,7 @@ OUTPUT_FILENAME = "output.json"
 def task() -> None:
     with open(INPUT_FILENAME) as inp:
         reader = csv.DictReader(inp)
-        csv_data = [i for i in reader]
+        csv_data = [Dict for Dict in reader]
 
     with open(OUTPUT_FILENAME, 'w') as out:
         json.dump(csv_data, out, indent=4)
